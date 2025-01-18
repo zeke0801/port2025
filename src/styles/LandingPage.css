@@ -1,0 +1,252 @@
+.landing-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.landing-content {
+  display: flex;
+  max-width: 70%;
+  width: 900px;
+  gap: 24px;
+  margin: 0 auto;
+  align-items: stretch;
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+  background: rgba(26, 26, 26, 0.5);
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(75, 75, 75, 0.2);
+}
+
+.gallery-section {
+  flex: 1.2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: dense;
+  grid-auto-rows: 140px;
+  gap: .5rem;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: rgba(47, 47, 47, 0.5);
+  border: 1px solid rgba(75, 75, 75, 0.1);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.gallery-item .text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+.gallery-item .text-overlay p {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 1rem;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item img:not(.visible) + .text-overlay {
+  opacity: 1;
+}
+
+.gallery-item img:not(.visible) + .text-overlay p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-item.wide {
+  grid-column: span 2;
+}
+
+.gallery-item.tall {
+  grid-row: span 2;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.1) translateZ(0);
+  transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 2s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform, filter;
+  backface-visibility: hidden;
+  filter: blur(10px);
+}
+
+.gallery-item img.visible {
+  opacity: 1;
+  transform: scale(1) translateZ(0);
+  filter: blur(0);
+}
+
+.gallery-item img.fade-out {
+  opacity: 0;
+  transform: scale(1.1) translateZ(0);
+  filter: blur(10px);
+}
+
+.login-section {
+  flex: 0.8;
+  background-color: rgba(26, 26, 26, 0.7);
+  border-radius: 8px;
+  padding: 1.5rem;
+  max-width: 300px;
+  border: 1px solid rgba(75, 75, 75, 0.2);
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(4px);
+}
+
+.instagram-logo {
+  font-family: 'Grand Hotel', cursive;
+  font-size: 36px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px rgba(169, 169, 169, 0.3);
+}
+
+.login-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-form h4 {
+  color: #fff;
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(47, 47, 47, 0.5);
+  border: 1px solid rgba(75, 75, 75, 0.2);
+  border-radius: 4px;
+  color: #fff;
+}
+
+.login-form input::placeholder {
+  color: #8e8e8e;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #404040;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 12px 0;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #4d4d4d;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  color: #8e8e8e;
+  margin: 16px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: rgba(75, 75, 75, 0.2);
+}
+
+.divider span {
+  padding: 0 8px;
+}
+
+.social-section {
+  text-align: center;
+  margin-top: auto;
+  padding: 20px 0;
+}
+
+.social-section p {
+  color: #8e8e8e;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-link {
+  color: #a9a9a9;
+  font-size: 24px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-link:hover {
+  color: #d3d3d3;
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .landing-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 90%;
+  }
+
+  .gallery-section {
+    width: 100%;
+  }
+
+  .login-section {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+}
