@@ -3,9 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { getGalleryImages, getRequiredImages, shuffleArray } from '../utils/imageUtils';
 import AnimatedBackground from '../components/AnimatedBackground';
+import { useNavigate } from 'react-router-dom';
 import '../styles/LandingPage.css';
 
 const LandingPage = () => {
+  const navigate = useNavigate();
   const [galleryImages, setGalleryImages] = useState([]);
   const [currentLayout, setCurrentLayout] = useState([]);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -196,7 +198,13 @@ const LandingPage = () => {
             <div className="divider">
               <span>OR</span>
             </div>
-            <h4>Client Login</h4>
+            <button 
+              type="button" 
+              className="client-login-btn"
+              onClick={() => navigate('/about')}
+            >
+              Client Login
+            </button>
           </form>
           <div className="social-section">
             <p>You can also find me at:</p>

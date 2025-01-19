@@ -183,6 +183,23 @@
   background-color: #4d4d4d;
 }
 
+.client-login-btn {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 4px;
+  background-color: #ff4500;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.client-login-btn:hover {
+  background-color: #ff5722;
+}
+
 .divider {
   display: flex;
   align-items: center;

@@ -1,0 +1,35 @@
+.footer {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 2rem 0;
+    margin-top: auto;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    color: #ff4500;
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+.footer-content {
+    text-align: center;
+    color: #888;
+}
+
+@media (max-width: 768px) {
+    .social-links {
+        gap: 1rem;
+    }
+}
