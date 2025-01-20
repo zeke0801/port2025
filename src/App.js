@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
-import AboutMe from './pages/AboutMe';
+import Polymorph from './pages/Polymorph';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/about" element={<AboutMe />} />
+          <Route path="/about" element={<Polymorph />} />
         </Routes>
       </div>
     </Router>
