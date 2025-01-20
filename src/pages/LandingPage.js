@@ -216,7 +216,7 @@ const LandingPage = () => {
             <p>You can also find me at:</p>
             <div className="social-links">
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/zeke0801"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link"
@@ -224,7 +224,7 @@ const LandingPage = () => {
                 <FontAwesomeIcon icon={faGithub} />
               </a>
               <a
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/joseph-raphael-betito-8b4523227/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link"
