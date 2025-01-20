@@ -1,10 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import '../styles/Polymorph.css';
 import aboutMeImage from './aboutme.jpg';
+import collegeDiploma from './Betito_Diploma-1.png';
 import CertificatesGrid from '../components/CertificatesGrid';
 import AwardsGrid from '../components/AwardsGrid';
 
 const Polymorph = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageClick = (imagePath) => {
+    setSelectedImage(imagePath);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedImage(null);
+  };
+
+  const handleEmailCopy = () => {
+    navigator.clipboard.writeText('jlbetito0801@gmai.com');
+    const btn = document.querySelector('.email-button');
+    btn.textContent = 'Email Copied!';
+    setTimeout(() => {
+      btn.textContent = 'Send Email';
+    }, 2000);
+  };
+
   return (
     <div className="polymorph-container">
       <div className="nav-section">
@@ -125,9 +147,12 @@ const Polymorph = () => {
               <h3>Education</h3>
               <div className="divider"></div>
               <div className="education-item">
-                <div className="date">Jun 2021 - Present</div>
-                <h4>University of Florida</h4>
-                <p>Masters • Fine Arts and Design</p>
+                <div className="date">2023 - Present</div>
+                <h4>Master of Fine Arts</h4>
+                <p>University of the Philippines</p>
+                <button className="view-diploma-btn" onClick={() => handleImageClick(collegeDiploma)}>
+                  View Diploma
+                </button>
               </div>
             </div>
           </div>
@@ -161,6 +186,33 @@ const Polymorph = () => {
           <CertificatesGrid />
         </div>
       </div>
+      <div className="footer">
+        <div className="profile-icon">
+          <img src={aboutMeImage} alt="Profile" className="footer-profile" />
+        </div>
+        <h2>Feel Free to Reach Out!</h2>
+        <p>Let's Build Amazing Stuff Together</p>
+        <div className="footer-buttons">
+          <button className="footer-button" onClick={handleEmailCopy}>
+            Send Email
+          </button>
+          <button className="footer-button" onClick={() => window.open('your-resume-url', '_blank')}>
+            Get my Resume
+          </button>
+        </div>
+        <div className="divider"></div>
+        <p className="copyright"> 2025, All Right Reserved</p>
+      </div>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div className="image-modal" onClick={handleCloseModal}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <span className="close-button" onClick={handleCloseModal}>&times;</span>
+            <img src={selectedImage} alt="Full size" />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

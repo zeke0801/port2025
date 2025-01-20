@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { getAwards } from '../utils/awardsUtils';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrophy } from '@fortawesome/free-solid-svg-icons';
 
 const AwardsGrid = () => {
   const [awards, setAwards] = useState([]);
@@ -30,20 +28,15 @@ const AwardsGrid = () => {
       <div className="awards-grid">
         {awards.map((award) => (
           <div key={award.id} className="award-item" onClick={() => handleAwardClick(award)}>
-            <div className="award-icon">
-              <FontAwesomeIcon icon={faTrophy} />
+            <h4>{award.title}</h4>
+            <div className="award-details">
+              <span>{award.issuer}</span>
+              <span className="bullet">•</span>
+              <span>Issued in {award.date}</span>
             </div>
-            <div className="award-content">
-              <h4>{award.title}</h4>
-              <div className="award-details">
-                <span>{award.issuer}</span>
-                <span>•</span>
-                <span>Issued in {award.date}</span>
-              </div>
-              <button className="view-certificate-btn">
-                View Certificate
-              </button>
-            </div>
+            <button className="view-certificate-btn">
+              View Certificate
+            </button>
           </div>
         ))}
       </div>

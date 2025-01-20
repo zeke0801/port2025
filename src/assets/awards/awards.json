@@ -1,0 +1,18 @@
+{
+  "awards": [
+    {
+      "id": "Y4IT",
+      "title": "Youth Congress for Information Technology",
+      "issuer": "UP ITTC",
+      "date": "2023",
+      "certificateImage": "Y4IT.png"
+    },
+    {
+      "id": "csc",
+      "title": "Civil Service Eligibility through HGE",
+      "issuer": "CSC-PH",
+      "date": "2024",
+      "certificateImage": "csc.jpg"
+    }
+  ]
+}
