@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import '../styles/Polymorph.css';
 import aboutMeImage from './aboutme.jpg';
 import collegeDiploma from './Betito_Diploma-1.png';

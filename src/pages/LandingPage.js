@@ -55,7 +55,7 @@ const LandingPage = () => {
       const initialLayout = requiredImages.map((image, index) => ({
         url: image,
         ...layoutConfigs[index],
-        text: positionTexts[index], // Fixed text based on position
+        text: positionTexts[index],
         key: Math.random(),
       }));
       setCurrentLayout(initialLayout);
@@ -74,12 +74,12 @@ const LandingPage = () => {
       const placeholders = Array(layoutConfigs.length).fill(null).map((_, index) => ({
         url: `https://source.unsplash.com/random/800x800?portfolio=${index + 1}`,
         ...layoutConfigs[index],
-        text: positionTexts[index], // Fixed text based on position
+        text: positionTexts[index],
         key: Math.random(),
       }));
       setCurrentLayout(placeholders);
     }
-  }, []);
+  }, [layoutConfigs, positionTexts, TRANSITION_DELAY]);
 
   // Function to handle smooth image transition
   const transitionImages = async (newImages) => {
@@ -153,7 +153,7 @@ const LandingPage = () => {
 
     const interval = setInterval(scheduleNextRotation, DISPLAY_DURATION + (FADE_DURATION * 2));
     return () => clearInterval(interval);
-  }, [galleryImages, currentLayout, isTransitioning]);
+  }, [galleryImages, currentLayout, isTransitioning, transitionImages]);
 
   return (
     <div className="landing-container">
