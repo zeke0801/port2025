@@ -1,31 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../styles/Header.css';
 
 const Header = () => {
   const location = useLocation();
+  const [showDevMessage, setShowDevMessage] = useState(false);
 
-  const isActive = (path) => {
-    return location.pathname === path ? 'nav-link active' : 'nav-link';
+  const handleNavClick = (path) => {
+    if (path === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (path !== location.pathname) {
+      setShowDevMessage(true);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setShowDevMessage(false);
+  };
+
+  const handleEmailCopy = (e) => {
+    navigator.clipboard.writeText('jlbetito0801@gmail.com');
+    const btn = e.target;
+    const originalText = btn.textContent;
+    btn.textContent = 'Email Copied!';
+    setTimeout(() => {
+      btn.textContent = originalText;
+    }, 2000);
   };
 
   return (
-    <header className="header">
-      <div className="header-content">
-        <div className="logo">
-          <Link to="/">
-            <span className="dream">W</span>
-            <span className="tek">olf</span>
-          </Link>
-        </div>
-        <nav className="navigation">
-          <Link to="/about" className={isActive('/about')}>About Me</Link>
-          <Link to="/experience" className={isActive('/experience')}>Work Experience</Link>
-          <Link to="/certifications" className={isActive('/certifications')}>Certifications</Link>
-          <Link to="/projects" className={isActive('/projects')}>Projects</Link>
+    <>
+      <div className="nav-section">
+        <nav>
+          <ul>
+            <li onClick={() => handleNavClick('/')}>About Me</li>
+            <li onClick={() => handleNavClick('/skills')}>Skills</li>
+            <li onClick={() => handleNavClick('/projects')}>Projects</li>
+            <li onClick={() => handleNavClick('/contact')}>Contact</li>
+          </ul>
+          <button className="footer-button" onClick={handleEmailCopy}>
+            Send Email
+          </button>
         </nav>
       </div>
-    </header>
+
+      {/* Development Message Modal */}
+      {showDevMessage && (
+        <div className="modal-overlay" onClick={handleCloseModal}>
+          <div className="dev-message" onClick={(e) => e.stopPropagation()}>
+            <h3>Sorry, Still Under Development!</h3>
+            <button className="close-button" onClick={handleCloseModal}>×</button>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

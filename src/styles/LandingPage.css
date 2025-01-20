@@ -154,6 +154,7 @@
 }
 
 .login-form input {
+  display: none;
   width: 100%;
   padding: 10px;
   background-color: rgba(47, 47, 47, 0.5);
@@ -167,6 +168,7 @@
 }
 
 .login-btn {
+  display: none;
   width: 100%;
   padding: 10px;
   background-color: #404040;
@@ -201,7 +203,7 @@
 }
 
 .divider {
-  display: flex;
+  display: none;
   align-items: center;
   color: #8e8e8e;
   margin: 16px 0;

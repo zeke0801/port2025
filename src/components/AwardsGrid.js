@@ -29,7 +29,7 @@ const AwardsGrid = () => {
         {awards.map((award) => (
           <div key={award.id} className="award-item" onClick={() => handleAwardClick(award)}>
             <h4>{award.title}</h4>
-            <div className="award-details">
+            <div className="award-details" style={{ textAlign: 'center' }}>
               <span>{award.issuer}</span>
               <span className="bullet">•</span>
               <span>Issued in {award.date}</span>

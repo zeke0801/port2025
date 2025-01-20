@@ -1,29 +1,29 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faTwitter, faLinkedin, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import '../styles/Footer.css';
 
-const Footer = () => {
+const Footer = ({ profileImage, onEmailCopy }) => {
   return (
-    <footer className="footer">
-      <div className="social-links">
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faFacebook} />
-        </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faTwitter} />
-        </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faLinkedin} />
-        </a>
-        <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faWhatsapp} />
-        </a>
+    <div className="footer">
+      <div className="center-orb"></div>
+      <div className="profile-icon">
+        <img src={profileImage} alt="Profile" className="footer-profile" />
       </div>
-      <div className="footer-content">
-        <p>&copy; {new Date().getFullYear()} DreamTek. All rights reserved.</p>
+      <h2>Feel Free to Reach Out!</h2>
+      <p>Let's Build Amazing Stuff Together</p>
+      <div className="footer-buttons">
+        <button className="footer-button" onClick={onEmailCopy}>
+          Send Email
+        </button>
+        <button 
+          className="footer-button" 
+          onClick={() => window.open('https://drive.google.com/file/d/1f533OCj9q1mmRL4F6SZH7hLj4-xRjzID/view?usp=drive_link', '_blank')}
+        >
+          Get my Resume
+        </button>
       </div>
-    </footer>
+      <div className="divider"></div>
+      <p className="copyright">© {new Date().getFullYear()}, All Rights Reserved</p>
+    </div>
   );
 };
 

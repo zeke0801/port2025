@@ -3,36 +3,69 @@
   color: #ffffff;
   min-height: 100vh;
   padding: 2rem 10rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.nav-section {
-  margin-bottom: 2rem;
-  padding: 1rem 2rem;
-  background-color: #888;
-  border-radius: 1rem;
+/* Light glow effects */
+.polymorph-container::before,
+.polymorph-container::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 100%, rgba(255, 255, 255, 0) 80%);
+  filter: blur(100px);
+  z-index: 0;
 }
 
-.nav-section nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Left glow */
+.polymorph-container::before {
+  top: -50px;
+  left: -100px;
 }
 
-.nav-section ul {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-  padding: 0;
-  margin-bottom: 0;
+/* Right glow */
+.polymorph-container::after {
+  bottom: -50px;
+  right: -100px;
 }
 
-.template-btn {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
+/* Polymorphic Shapes */
+.polymorph-shape {
+  position: absolute;
+  top: 30%;
+  left: 15%;
+  width: 320px;
+  height: 320px;
+  background: linear-gradient(135deg, #c82429 100%, #d63408 100%);
+  clip-path: polygon(40% 0%, 100% 40%, 60% 100%, 0% 60%);
+  opacity: 0.4;
+}
+
+/* Right blob */
+.polymorph-shape-2 {
+  position: absolute;
+  top: 55%;
+  left: 70%;
+  width: 260px;
+  height: 260px;
+  background: linear-gradient(135deg, #000000 100%, #02152b 100%);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  opacity: 0.4;
+}
+
+/* More Visible Blob Near Center */
+.polymorph-shape-3 {
+  position: absolute;
+  top: 48%;
+  left: 42%;
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(135deg, #fe00b6 100%, #005eff 100%);
+  clip-path: circle(40% at 50% 50%);
+  opacity: 0.5;
+  filter: blur(10px);
 }
 
 .content-grid {
@@ -52,7 +85,7 @@
   background: #1a1a1f;
   padding: .5rem;
   border-radius: 1rem;
-  width: 280px;
+  width: 300px;
   height: 320px;
   display: flex;
   align-items: center;
@@ -60,8 +93,8 @@
 }
 
 .profile-image {
-  width: 250px;
-  height: 290px;
+  width: 280px;
+  height: 300px;
   overflow: hidden;
   border-radius: 0.5rem;
 }
@@ -132,12 +165,13 @@
 
 .contact-card h3, .experience-card h3 {
   text-align: left;
+  font-size: 2rem;
 }
 
 .contact-item h4 {
   color: #888;
   margin: 0 0 0.5rem;
-    text-align: left;
+  text-align: left;
 }
 
 .contact-item p {
@@ -146,12 +180,12 @@
 
 .experience-card {
   background: #13151a;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 1rem;
 }
 
 .experience-card h3 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin: 0;
   font-weight: 500;
   color: #fff;
@@ -265,13 +299,13 @@
 .education-card,
 .language-card {
   background: #13151a;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 1rem;
 }
 
 .education-card h3,
 .language-card h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 0;
   font-weight: 500;
   color: #fff;
@@ -369,6 +403,7 @@
   font-size: 1.5rem;
   margin: 0;
   color: #fff;
+  text-align: left;
 }
 
 .awards-grid {
@@ -380,6 +415,7 @@
 
 .award-item {
   display: flex;
+  text-align: center;
   flex-direction: column;
   align-items: flex-start;
   padding: 1.5rem;
@@ -402,6 +438,8 @@
 }
 
 .award-details {
+  justify-content: center;
+  text-align: center;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -462,6 +500,7 @@
   background: rgba(255, 255, 255, 0.05);
   padding: 1.5rem;
   border-radius: 12px;
+  margin-top: 2rem;
 }
 
 .certificates-card h3 {
@@ -606,73 +645,6 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
-.footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 4rem 0;
-  margin-top: 4rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer-profile {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 2rem;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer h2 {
-  font-size: 2rem;
-  margin: 0 0 0.5rem;
-  color: #fff;
-}
-
-.footer p {
-  color: #888;
-  margin: 0 0 2rem;
-  font-size: 1.1rem;
-}
-
-.footer-buttons {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.footer-button {
-  background: #7c3aed;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  color: #fff;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.footer-button:hover {
-  background: #6d28d9;
-  transform: translateY(-2px);
-}
-
-.footer .divider {
-  width: 100%;
-  max-width: 200px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.1);
-  margin: 2rem 0;
-}
-
-.copyright {
-  color: #666;
-  font-size: 0.9rem;
-  margin: 0;
-}
-
 .image-modal {
   position: fixed;
   top: 0;
@@ -710,7 +682,7 @@
   padding: 5px;
 }
 
-.email-button {
+.nav-email-btn {
   background: #7c3aed;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -721,7 +693,7 @@
   transition: all 0.3s ease;
 }
 
-.email-button:hover {
+.nav-email-btn:hover {
   background: #6d28d9;
   transform: translateY(-2px);
 }
@@ -773,4 +745,140 @@
     .language-card {
         padding: 1.5rem;
     }
+}
+
+.contact-section {
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    rgba(30, 30, 40, 0.95),
+    rgba(20, 20, 30, 0.95)
+  );
+  padding: 2rem;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+/* Create the glowing orbs */
+.contact-section::before,
+.contact-section::after {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  filter: blur(45px);
+  z-index: -1;
+  opacity: 0.4;
+  animation: moveGlow 10s infinite alternate;
+}
+
+.contact-section::before {
+  background: radial-gradient(circle, #7c3aed, transparent 70%);
+  top: -50px;
+  left: -50px;
+}
+
+.contact-section::after {
+  background: radial-gradient(circle, #3b82f6, transparent 70%);
+  bottom: -50px;
+  right: -50px;
+}
+
+@keyframes moveGlow {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, 20px);
+  }
+  100% {
+    transform: translate(-20px, -20px);
+  }
+}
+
+/* Add subtle inner shadow for depth */
+.contact-section {
+  box-shadow: 
+    inset 0 2px 4px rgba(255, 255, 255, 0.05),
+    0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhance text readability with subtle text shadow */
+.contact-section h3,
+.contact-section p {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+/* Development Message Modal */
+.dev-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(
+    145deg,
+    rgba(42, 56, 94, 0.95),
+    rgba(41, 36, 49, 0.95)
+  );
+  padding: 2rem 3rem;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.dev-message::before {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(0, 102, 255), transparent 100%);
+  filter: blur(40px);
+  opacity: 0.15;
+  top: -50px;
+  right: -50px;
+  z-index: -1;
+}
+
+.dev-message h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 999;
 }
