@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { getGalleryImages, getRequiredImages, shuffleArray } from '../utils/imageUtils';
@@ -16,7 +16,7 @@ const LandingPage = () => {
   const TRANSITION_DELAY = 100; // Delay between each image transition
 
   // Layout configurations for different grid positions
-  const layoutConfigs = [
+  const layoutConfigs = useMemo(() => [
     { wide: false, tall: false },
     { wide: true, tall: false },
     { wide: false, tall: false },
@@ -29,10 +29,10 @@ const LandingPage = () => {
     { wide: false, tall: false },
     { wide: false, tall: true },
     { wide: false, tall: false },
-  ];
+  ], []);
 
   // Array of fixed texts for each position
-  const positionTexts = [
+  const positionTexts = useMemo(() => [
     "Crafting Digital Experiences",
     "Building Tomorrow's Web",
     "Design Meets Innovation",
@@ -43,46 +43,10 @@ const LandingPage = () => {
     "Modern Technologies",
     "Elegant Code",
     "User-Centric Design"
-  ];
-
-  // Initialize gallery
-  useEffect(() => {
-    try {
-      const images = getGalleryImages();
-      const requiredImages = getRequiredImages(images, layoutConfigs.length);
-      setGalleryImages(requiredImages);
-      
-      const initialLayout = requiredImages.map((image, index) => ({
-        url: image,
-        ...layoutConfigs[index],
-        text: positionTexts[index],
-        key: Math.random(),
-      }));
-      setCurrentLayout(initialLayout);
-
-      // Initial fade in
-      setTimeout(() => {
-        const images = document.querySelectorAll('.gallery-item img');
-        images.forEach((img, index) => {
-          setTimeout(() => {
-            img.classList.add('visible');
-          }, index * TRANSITION_DELAY);
-        });
-      }, 30);
-    } catch (error) {
-      console.error('Error loading images:', error);
-      const placeholders = Array(layoutConfigs.length).fill(null).map((_, index) => ({
-        url: `https://source.unsplash.com/random/800x800?portfolio=${index + 1}`,
-        ...layoutConfigs[index],
-        text: positionTexts[index],
-        key: Math.random(),
-      }));
-      setCurrentLayout(placeholders);
-    }
-  }, [layoutConfigs, positionTexts, TRANSITION_DELAY]);
+  ], []);
 
   // Function to handle smooth image transition
-  const transitionImages = async (newImages) => {
+  const transitionImages = useCallback(async (newImages) => {
     if (isTransitioning) return;
     setIsTransitioning(true);
 
@@ -128,7 +92,43 @@ const LandingPage = () => {
     } finally {
       setIsTransitioning(false);
     }
-  };
+  }, [isTransitioning, TRANSITION_DELAY, FADE_DURATION, DISPLAY_DURATION]);
+
+  // Initialize gallery
+  useEffect(() => {
+    try {
+      const images = getGalleryImages();
+      const requiredImages = getRequiredImages(images, layoutConfigs.length);
+      setGalleryImages(requiredImages);
+      
+      const initialLayout = requiredImages.map((image, index) => ({
+        url: image,
+        ...layoutConfigs[index],
+        text: positionTexts[index],
+        key: Math.random(),
+      }));
+      setCurrentLayout(initialLayout);
+
+      // Initial fade in
+      setTimeout(() => {
+        const images = document.querySelectorAll('.gallery-item img');
+        images.forEach((img, index) => {
+          setTimeout(() => {
+            img.classList.add('visible');
+          }, index * TRANSITION_DELAY);
+        });
+      }, 30);
+    } catch (error) {
+      console.error('Error loading images:', error);
+      const placeholders = Array(layoutConfigs.length).fill(null).map((_, index) => ({
+        url: `https://source.unsplash.com/random/800x800?portfolio=${index + 1}`,
+        ...layoutConfigs[index],
+        text: positionTexts[index],
+        key: Math.random(),
+      }));
+      setCurrentLayout(placeholders);
+    }
+  }, [layoutConfigs, positionTexts, TRANSITION_DELAY]);
 
   // Rotate images periodically
   useEffect(() => {
@@ -139,8 +139,7 @@ const LandingPage = () => {
       const newLayout = currentLayout.map((item, index) => ({
         ...item,
         url: shuffledImages[index],
-        // Keep the same text as before
-        text: currentLayout[index].text,
+        text: item.text,
       }));
       transitionImages(newLayout);
     };
@@ -153,7 +152,14 @@ const LandingPage = () => {
 
     const interval = setInterval(scheduleNextRotation, DISPLAY_DURATION + (FADE_DURATION * 2));
     return () => clearInterval(interval);
-  }, [galleryImages, currentLayout, isTransitioning, transitionImages]);
+  }, [
+    galleryImages,
+    currentLayout,
+    isTransitioning,
+    transitionImages,
+    DISPLAY_DURATION,
+    FADE_DURATION
+  ]);
 
   return (
     <div className="landing-container">
