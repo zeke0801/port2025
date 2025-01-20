@@ -118,6 +118,7 @@
 
 .login-section {
   flex: 0.8;
+  justify-content: ;
   background-color: rgba(26, 26, 26, 0.7);
   border-radius: 8px;
   padding: 1.5rem;
@@ -139,6 +140,7 @@
 }
 
 .login-form {
+  justify-content: center;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -202,8 +204,9 @@
   background-color: #ff5722;
 }
 
-.divider {
+.divider-landingpage {
   display: none;
+  justify-content: center;
   align-items: center;
   color: #8e8e8e;
   margin: 16px 0;

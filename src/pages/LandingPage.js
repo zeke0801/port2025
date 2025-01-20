@@ -195,7 +195,7 @@ const LandingPage = () => {
             <button type="button" className="login-btn">
               Log in
             </button>
-            <div className="divider">
+            <div className="divider-landingpage">
               <span>OR</span>
             </div>
             <button 
