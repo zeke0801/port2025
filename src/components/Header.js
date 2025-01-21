@@ -1,16 +1,32 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/Header.css';
 
 const Header = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [showDevMessage, setShowDevMessage] = useState(false);
 
   const handleNavClick = (path) => {
-    if (path === '/') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (path !== location.pathname) {
-      setShowDevMessage(true);
+    // If we're already on the page, don't do anything
+    if (path === location.pathname) {
+      return;
+    }
+
+    // Handle navigation based on path
+    switch (path) {
+      case '/about':
+        navigate('/about');
+        break;
+      case '/projects':
+        navigate('/projects');
+        break;
+      case '/skills':
+      case '/contact':
+        setShowDevMessage(true);
+        break;
+      default:
+        navigate('/');
     }
   };
 
@@ -33,7 +49,7 @@ const Header = () => {
       <div className="nav-section">
         <nav>
           <ul>
-            <li onClick={() => handleNavClick('/')}>About Me</li>
+            <li onClick={() => handleNavClick('/about')}>About Me</li>
             <li onClick={() => handleNavClick('/skills')}>Skills</li>
             <li onClick={() => handleNavClick('/projects')}>Projects</li>
             <li onClick={() => handleNavClick('/contact')}>Contact</li>
@@ -47,9 +63,10 @@ const Header = () => {
       {/* Development Message Modal */}
       {showDevMessage && (
         <div className="modal-overlay" onClick={handleCloseModal}>
-          <div className="dev-message" onClick={(e) => e.stopPropagation()}>
-            <h3>Sorry, Still Under Development!</h3>
-            <button className="close-button" onClick={handleCloseModal}>×</button>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <h2>Under Development</h2>
+            <p>This feature is currently under development. Please check back later!</p>
+            <button onClick={handleCloseModal}>Close</button>
           </div>
         </div>
       )}

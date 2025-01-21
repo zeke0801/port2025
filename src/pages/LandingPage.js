@@ -25,10 +25,6 @@ const LandingPage = () => {
     { wide: true, tall: false },
     { wide: false, tall: true },
     { wide: false, tall: false },
-    { wide: true, tall: false },
-    { wide: false, tall: false },
-    { wide: false, tall: true },
-    { wide: false, tall: false },
   ], []);
 
   // Array of fixed texts for each position

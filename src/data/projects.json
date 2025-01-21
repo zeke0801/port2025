@@ -1,0 +1,84 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "City Management System", 
+      "subtitle": "Tracking Ground Issues in Real-time",
+      "bgColor": "#8A2BE2",
+      "images": [
+        "/src/assets/projects/cms1.png",
+        "/src/assets/projects/cms2.png",
+        "/src/assets/projects/cms2.png"
+      ],
+      "description": "Ability to report and monitor ground issues while having the entire city view within your finger tips.",
+      "technologies": ["React", "Node.js", "MongoDB", "Express", "Vanilla CSS", "Render", "Netlify", "MongoDB", "Digital Ocean"],
+      "link": "https://incidentreportnagaz.netlify.app/"
+    },
+    {
+      "id": 2,
+      "title": "ReVenue - Facility Reservation System",
+      "subtitle": "Generic facility reservation system for any organization",
+      "bgColor": "#FF6B35",
+      "images": [
+        "/src/assets/projects/reserve1.png",
+        "/src/assets/projects/reserve2.png",
+        "/src/assets/projects/reserve3.png"
+      ],
+      "description": "A Render-Based facility reservation system that has the ability to track and report availability to admin and clients.",
+      "technologies": ["React.js", "Node.js", "Express", "MongoDB", "Render"],
+      "link": "https://revenue-personal-wolfz.onrender.com/"
+    },
+    {
+      "id": 3,
+      "title": "Project ARISE",
+      "subtitle": "New Student Database Management System (PRIVATE)",
+      "bgColor": "#4169E1",
+      "images": [
+        "/src/assets/projects/arise2.png",
+        "/src/assets/projects/arise1.png",
+        "/src/assets/projects/arise3.png"
+      ],
+      "description": "This is a private project commissioned by Ateneo de Naga University.",
+      "technologies": ["React", "Oracle", "Ruby on Rails", "Bootstrap", "Github", "MongoDB"],
+      "link": "https://private-site.com/cannot-be-accessed"
+    },
+    {
+      "id": 4,
+      "title": "Anime Watch List",
+      "subtitle": "Powered by MyAnimeList and Coffee",
+      "bgColor": "#4169E1",
+      "images": [
+        "/src/assets/projects/anime1.png"
+      ],
+      "description": "A phone-friendly personal project to track my favorite anime shows without opening my laptop.",
+      "technologies": ["React.Js", "Local Storage", "Vanilla CSS", "Netlify"],
+      "link": "https://animetrackerbyz.netlify.app/"
+    },
+    {
+      "id": 5,
+      "title": "Grocery Tracker",
+      "subtitle": "Budget Management is a must in this economy...",
+      "bgColor": "#4169E1",
+      "images": [
+        "/src/assets/projects/grocery1.png"
+      ],
+      "description": "A phone-friendly personal project to track my grocery runs, has cool built in features.",
+      "technologies": ["React.Js", "Local Storage", "Vanilla CSS", "Netlify"],
+      "link": "https://calcios.web.app/"
+    },    
+    {
+      "id": 6,
+      "title": "React Mini Games",
+      "subtitle": "Old School JavaScript AIs are fun.",
+      "bgColor": "#4169E1",
+      "images": [
+        "/src/assets/projects/mini1.png",
+        "/src/assets/projects/mini2.png",
+        "/src/assets/projects/mini3.png"
+      ],
+      "description": "A phone-friendly personal project to test my JavaScript skills, play the Tic-Tace-Toe game, I dare you.",
+      "technologies": ["React.Js", "Local Storage", "Vanilla CSS", "Netlify"],
+      "link": "https://zeke-three-apps-in-one.netlify.app/"
+    }
+  ]
+}

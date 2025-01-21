@@ -6,6 +6,8 @@ import CertificatesGrid from '../components/CertificatesGrid';
 import AwardsGrid from '../components/AwardsGrid';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 const Polymorph = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -63,18 +65,47 @@ const Polymorph = () => {
           <div className="contact-card">
             <h3>Contact</h3>
             <div className="divider"></div>
-            <div className="contact-details">
-              <div className="contact-item">
-                <h4>Phone</h4>
-                <p>+63 917-123-7040</p>
-              </div>
-              <div className="contact-item">
-                <h4>Email</h4>
-                <p>jlbetito0801@gmail.com</p>
-              </div>
-              <div className="contact-item">
-                <h4>Address</h4>
-                <p>Naga City, Bicol, Philippines 4402</p>
+            <div className="contact-info">
+              <p>
+                <strong>Phone:</strong><br />
+                +63 917-123-7040
+              </p>
+              <p>
+                <strong>Email:</strong><br />
+                jlbetito0801@gmail.com
+              </p>
+              <p>
+                <strong>Address:</strong><br />
+                Naga City, Bicol, Philippines 4402
+              </p>
+            </div>
+            <div className="social-media-section">
+              <h3>Social Media</h3>
+              <div className="social-icons">
+                <div className="social-icon-wrapper">
+                  <a href="https://www.linkedin.com/in/joseph-raphael-betito-8b4523227/" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faLinkedin} className="social-icon" />
+                    <span className="social-text">LinkedIn</span>
+                  </a>
+                </div>
+                <div className="social-icon-wrapper">
+                  <a href="https://github.com/zeke0801" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faGithub} className="social-icon" />
+                    <span className="social-text">GitHub</span>
+                  </a>
+                </div>
+                <div className="social-icon-wrapper">
+                  <a href="https://www.instagram.com/zekebetito08/" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faInstagram} className="social-icon" />
+                    <span className="social-text">Instagram</span>
+                  </a>
+                </div>
+                <div className="social-icon-wrapper">
+                  <a href="https://www.facebook.com/josephraphael.betito/" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faFacebook} className="social-icon" />
+                    <span className="social-text">Facebook</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
