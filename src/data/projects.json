@@ -8,7 +8,7 @@
       "images": [
         "/src/assets/projects/cms1.png",
         "/src/assets/projects/cms2.png",
-        "/src/assets/projects/cms2.png"
+        "/src/assets/projects/cms3.png"
       ],
       "description": "Ability to report and monitor ground issues while having the entire city view within your finger tips.",
       "technologies": ["React", "Node.js", "MongoDB", "Express", "Vanilla CSS", "Render", "Netlify", "MongoDB", "Digital Ocean"],
