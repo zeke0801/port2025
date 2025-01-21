@@ -63,10 +63,13 @@ const Header = () => {
       {/* Development Message Modal */}
       {showDevMessage && (
         <div className="modal-overlay" onClick={handleCloseModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h2>Under Development</h2>
-            <p>This feature is currently under development. Please check back later!</p>
-            <button onClick={handleCloseModal}>Close</button>
+          <div className="dev-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="dev-modal-content">
+              <div className="dev-icon">🚧</div>
+              <h3>Coming Soon</h3>
+              <p>This feature is currently under development.</p>
+              <button onClick={handleCloseModal}>Got it</button>
+            </div>
           </div>
         </div>
       )}

@@ -106,12 +106,11 @@
 }
 
 .profile-info {
-  padding-top: 1rem;
   text-align: left;
 }
 
 .profile-info h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 600;
   margin: 0;
   line-height: 1.2;
@@ -128,19 +127,20 @@
   width: 60px;
   height: 2px;
   background-color: #ffffff;
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 
 .profile-description h3 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin: 0 0 1rem 0;
 }
 
 .profile-description p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
   color: #cccccc;
   max-width: 600px;
+  margin-bottom: 0rem;
 }
 
 .details-grid {
@@ -155,6 +155,13 @@
   padding: 1.5rem;
   border-radius: 12px;
   text-align: left;
+}
+
+.education-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
 }
 
 .contact-details {
@@ -416,26 +423,23 @@
 }
 
 .award-item {
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.05);
   padding: 1.5rem;
-  background: #1a1a1f;
   border-radius: 12px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.award-item:hover {
-  transform: translateY(-2px);
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .award-item h4 {
-  font-size: 1.25rem;
-  margin: 0 0 0.75rem;
   color: #fff;
-  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.award-item p {
+  color: #ccc;
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
   line-height: 1.4;
 }
 
@@ -615,17 +619,6 @@
   object-fit: contain;
 }
 
-.close-button {
-  position: absolute;
-  top: -40px;
-  right: -40px;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0.5rem;
-}
 
 .close-button:hover {
   color: #888;
@@ -910,23 +903,7 @@
   color: #fff;
 }
 
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 5px 10px;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
 
-.close-button:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
 
 .modal-overlay {
   position: fixed;

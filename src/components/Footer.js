@@ -18,7 +18,7 @@ const Footer = ({ profileImage, onEmailCopy }) => {
           className="footer-button" 
           onClick={() => window.open('https://drive.google.com/file/d/1f533OCj9q1mmRL4F6SZH7hLj4-xRjzID/view?usp=drive_link', '_blank')}
         >
-          Get my Resume
+          Get my Full Resume!
         </button>
       </div>
       <div className="divider"></div>

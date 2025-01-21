@@ -43,7 +43,7 @@ const AwardsGrid = () => {
 
       {/* Modal for viewing certificate */}
       <div className={`award-modal ${selectedAward ? 'show' : ''}`} onClick={handleCloseModal}>
-        <div className="modal-content" onClick={e => e.stopPropagation()}>
+        <div className="modal-content">
           <span className="close-button" onClick={handleCloseModal}>&times;</span>
           {selectedAward && (
             <img 

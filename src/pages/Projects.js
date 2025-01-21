@@ -51,7 +51,7 @@ const Projects = () => {
       <Header />
       
       <main className="projects-content">
-        <h1 className="projects-title">Project Showcase</h1>
+        <h1 className="projects-title">Projects</h1>
         <div className="projects-grid">
           {projects.map((project) => (
             <div 

@@ -6,6 +6,54 @@ import AnimatedBackground from '../components/AnimatedBackground';
 import { useNavigate } from 'react-router-dom';
 import '../styles/LandingPage.css';
 
+const TypingText = () => {
+  const [text, setText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+
+  const toRotate = [
+    'Zeke Betito',
+    'Project Management',
+    'Full Stack Developer',
+    'UI/UX Designer',
+    'Consultant',
+    'Freelancer',
+
+  ];
+
+  useEffect(() => {
+    let ticker = setTimeout(() => {
+      const i = loopNum % toRotate.length;
+      const fullText = toRotate[i];
+
+      if (isDeleting) {
+        setText(prev => prev.slice(0, -1));
+        setTypingSpeed(50);
+      } else {
+        setText(prev => fullText.slice(0, prev.length + 1));
+        setTypingSpeed(150);
+      }
+
+      if (!isDeleting && text === fullText) {
+        setTimeout(() => setIsDeleting(true), 2500);
+      } else if (isDeleting && text === '') {
+        setIsDeleting(false);
+        setLoopNum(prev => prev + 1);
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(ticker);
+  }, [text, isDeleting, loopNum, typingSpeed, toRotate]);
+
+  return (
+    <div className="typing-text">
+      <span>{text}</span>
+      <span className="cursor">|</span>
+    </div>
+  );
+};
+
 const LandingPage = () => {
   const navigate = useNavigate();
   const [galleryImages, setGalleryImages] = useState([]);
@@ -186,6 +234,8 @@ const LandingPage = () => {
         <div className="login-section">
           <div className="instagram-logo">Wolf</div>
           <form className="login-form">
+           
+            <TypingText />
             <input
               type="text"
               placeholder="Phone number, username, or email"

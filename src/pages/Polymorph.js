@@ -43,19 +43,13 @@ const Polymorph = () => {
           </div>
           <div className="profile-info">
             <h1>Joseph Raphael Betito</h1>
-            <h2>Full Stack Developer UI/UX Designer</h2>
+            <h2>Full Stack Developer | UI/UX Designer</h2>
             <div className="divider"></div>
             <div className="profile-description">
               <h3>Professional Profile</h3>
-              <p>Experienced programmer and
-                designer with a strong background
-                in operations management, having
+              <p>Experienced programmer and designer with a strong background in operations management. Skilled in negotiation, problem-solving, and client satisfaction, with a passion for creating efficient and user-friendly solutions.
 
-                the skills in negotiation, problem-solving,
-                 and client satisfaction.
-
-                Proven ability to work under-pressure
-                 and in multiple teams.
+I thrive in fast-paced environments, enjoy collaborating with teams, and excel at finding creative solutions under pressure. Always eager to learn, adapt, and take on new challenges!
               </p>
             </div>
           </div>
@@ -117,7 +111,6 @@ const Polymorph = () => {
               <div className="experience-item">
                 <div className="experience-left">
                   <div className="date-box">
-                    <span className="calendar-icon">📅</span>
                     December 2024
                   </div>
                   <div className="company-name">Ateneo De Naga University JHS</div>
@@ -139,7 +132,6 @@ const Polymorph = () => {
               <div className="experience-item">
                 <div className="experience-left">
                   <div className="date-box">
-                    <span className="calendar-icon">📅</span>
                     May 2024 - August 2024
                   </div>
                   <div className="company-name">Vet Ping</div>
@@ -162,7 +154,6 @@ const Polymorph = () => {
               <div className="experience-item">
                 <div className="experience-left">
                   <div className="date-box">
-                    <span className="calendar-icon">📅</span>
                     December 2023 - May 2024
                   </div>
                   <div className="company-name">Dalan; StartUp</div>
@@ -184,7 +175,6 @@ const Polymorph = () => {
               <div className="experience-item">
                 <div className="experience-left">
                   <div className="date-box">
-                    <span className="calendar-icon">📅</span>
                     June 2023 - July 2023
                   </div>
                   <div className="company-name">Department of Agrarian Reform</div>
@@ -211,7 +201,7 @@ const Polymorph = () => {
               <h3>Education</h3>
               <div className="divider"></div>
               <div className="education-item">
-                <div className="date">2023 - Present</div>
+                <div className="date">2019 - 2024</div>
                 <h4>Bachelor of Science in Computer Science</h4>
                 <p>Ateneo De Naga University</p>
                 <button className="view-diploma-btn" onClick={() => handleImageClick(collegeDiploma)}>
@@ -255,7 +245,6 @@ const Polymorph = () => {
         <div className="modal-overlay" onClick={handleCloseModal}>
           <div className="modal-content">
             <img src={selectedImage} alt="Certificate" />
-            <button className="close-button" onClick={handleCloseModal}>×</button>
           </div>
         </div>
       )}
