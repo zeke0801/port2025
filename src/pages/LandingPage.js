@@ -12,15 +12,14 @@ const TypingText = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
-  const toRotate = [
+  const toRotate = useMemo(() => [
     'Zeke Betito',
     'Project Management',
     'Full Stack Developer',
     'UI/UX Designer',
     'Consultant',
     'Freelancer',
-
-  ];
+  ], []);
 
   useEffect(() => {
     let ticker = setTimeout(() => {
