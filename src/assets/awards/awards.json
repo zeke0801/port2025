@@ -13,6 +13,13 @@
       "issuer": "CSC-PH",
       "date": "2024",
       "certificateImage": "csc.jpg"
+    },
+    {
+      "id": "dar",
+      "title": "Department of Agrarian Reform  - Internship Certificate",
+      "issuer": "DAR - V",
+      "date": "2023",
+      "certificateImage": "dar_intership.png"
     }
   ]
 }
